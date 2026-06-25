@@ -1,0 +1,13 @@
+{
+  "ignore": {
+    "rules": [
+      "react-doctor/no-giant-component",
+      "react-doctor/no-unknown-property",
+      "react-doctor/no-inline-exhaustive-style"
+    ],
+    "files": [
+      "src/navigation/nab_bar.jsx",
+      "src/components/BorderGlow/BorderGlow.jsx"
+    ]
+  }
+}
