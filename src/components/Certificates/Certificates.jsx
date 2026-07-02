@@ -18,7 +18,7 @@ export default function Certificates({
   openCertificate,
 }) {
   return (
-    <section id="achievements" className="mt-10 mb-10 scroll-mt-24">
+    <section id="achievements" className="mt-10 mb-10 scroll-mt-32">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-3xl font-semibold">Certificates</h2>
         <div className="flex gap-3">

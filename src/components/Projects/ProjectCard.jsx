@@ -7,7 +7,7 @@ import BorderGlow from '../BorderGlow'
 export default function ProjectCard({ project, onClick }) {
   return (
     <BorderGlow
-      className="h-full"
+      className="h-full p-[2px] transition-transform duration-300 hover:-translate-y-1"
       glowColor="40 80 80"
       backgroundColor="#120F17"
       borderRadius={28}
@@ -19,7 +19,7 @@ export default function ProjectCard({ project, onClick }) {
       <SpotlightCard
         onClick={onClick}
         spotlightColor="rgba(0, 229, 255, 0.18)"
-        className="flex h-full flex-col rounded-[1.75rem] border border-white/10 bg-white/8 p-4 text-left shadow-xl shadow-black/10 transition hover:-translate-y-1 hover:border-emerald-400/50 focus:outline-none"
+        className="flex h-full flex-col rounded-[calc(1.75rem-2px)] border border-white/10 bg-white/8 p-4 text-left shadow-xl shadow-black/10 transition hover:border-emerald-400/50 focus:outline-none"
       >
         <figure className="relative h-56 overflow-hidden rounded-[1.25rem] bg-black/15 p-4">
           <SafeImage

@@ -50,7 +50,7 @@ export default function Projects({
   }
 
   return (
-    <section id="projects" className="mt-10 overflow-hidden">
+    <section id="projects" className="mt-10 scroll-mt-32 overflow-hidden">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-3xl font-semibold">Projects</h2>
         <div className="flex gap-3">

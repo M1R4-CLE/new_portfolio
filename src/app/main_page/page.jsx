@@ -17,6 +17,7 @@ import Certificates from '../../components/Certificates/Certificates'
 import Contact from '../../components/Contact/Contact'
 import Footer from '../../components/Footer/Footer'
 import LineWaves from '../../components/LineWaves/LineWaves'
+import Toolbox from '../../components/Toolbox/Toolbox'
 
 function ContactModal({ isOpen, onClose }) {
   if (!isOpen) {
@@ -64,7 +65,7 @@ function ContactModal({ isOpen, onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="rounded-full bg-emerald-400 px-6 py-3 font-semibold text-black transition hover:bg-emerald-300"
+              className="rounded-full bg-emerald-400 px-6 py-3 font-semibold text-black transition-all hover:bg-emerald-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_15px_rgba(52,211,153,0.5)]"
             >
               Send
             </button>
@@ -228,10 +229,12 @@ export default function MainPage() {
           openContactModal={openContactModal}
         />
 
-        <div className="mx-auto max-w-7xl px-6 py-10 md:py-16 space-y-10">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-32 space-y-24">
           <Hero openContactModal={openContactModal} />
 
           <About />
+
+          <Toolbox />
 
           <Certificates
             adjustCertificateOffset={adjustCertificateOffset}
@@ -276,7 +279,7 @@ export default function MainPage() {
             <button
               type="button"
               onClick={closeCertificate}
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/30 text-xl transition hover:border-emerald-400 hover:text-emerald-400"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/30 text-xl transition-all hover:border-emerald-400 hover:text-emerald-400 hover:scale-110 active:scale-95"
             >
               &#10005;
             </button>
@@ -303,7 +306,7 @@ export default function MainPage() {
             <button
               type="button"
               onClick={closeProject}
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/30 text-xl transition hover:border-emerald-400 hover:text-emerald-400"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/30 text-xl transition-all hover:border-emerald-400 hover:text-emerald-400 hover:scale-110 active:scale-95"
             >
               &#10005;
             </button>
@@ -340,7 +343,7 @@ export default function MainPage() {
                     href={selectedProject.linkUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-2 inline-flex text-lg font-semibold text-emerald-400 transition hover:text-emerald-300"
+                    className="mt-2 inline-flex text-lg font-semibold text-emerald-400 transition-all hover:text-emerald-300 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]"
                   >
                     {selectedProject.linkLabel || 'Open project'}
                   </a>

@@ -4,7 +4,7 @@ import { SocialIcon } from '../../app/back_end/portfolio_back_end'
 
 export default function Contact({ openContactModal, socials }) {
   return (
-    <section id="contact" className="mt-10">
+    <section id="contact" className="mt-10 scroll-mt-32">
       <div className="grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/8 shadow-2xl shadow-black/10 backdrop-blur-xl lg:grid-cols-[1.1fr_0.9fr]">
         <div className="p-8 md:p-10">
           <h2 className="text-4xl font-semibold">Let us help you.</h2>

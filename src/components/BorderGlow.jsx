@@ -290,7 +290,7 @@ const BorderGlow = ({
         />
       </span>
 
-      <div className="relative z-[1] flex flex-col overflow-auto">{children}</div>
+      <div className="relative z-[1] flex h-full flex-col">{children}</div>
     </div>
   )
 }
