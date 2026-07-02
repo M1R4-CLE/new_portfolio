@@ -101,16 +101,18 @@ export default function MainPage() {
 
   const [certificateOffset, setCertificateOffset] = useState(0)
   const [isGrabbingCertificates, setIsGrabbingCertificates] = useState(false)
-  const certificateRadius = 390
-  const certificateCardWidth = 420
+  const certificateRadius = 600
+  const certificateCardWidth = 480
   const certificateCardHeight = 280
   const [isAutoSpinPaused, setIsAutoSpinPaused] = useState(false)
+  const [spinDirection, setSpinDirection] = useState('normal')
   const certificateOffsetRef = useRef(0)
   const certificateRotationRef = useRef(null)
   const dragStateRef = useRef({
     isDragging: false,
     lastClientX: 0,
     totalDeltaX: 0,
+    lastDeltaX: 0,
     cleanup: null,
   })
   const suppressCertificateClickRef = useRef(false)
@@ -125,7 +127,6 @@ export default function MainPage() {
     dragStateRef.current.totalDeltaX = 0
     setIsGrabbingCertificates(true)
     setIsAutoSpinPaused(true)
-    event.preventDefault()
 
     const handlePointerMove = (moveEvent) => {
       if (!dragStateRef.current.isDragging) {
@@ -135,7 +136,8 @@ export default function MainPage() {
       const deltaX = moveEvent.clientX - dragStateRef.current.lastClientX
       dragStateRef.current.lastClientX = moveEvent.clientX
       dragStateRef.current.totalDeltaX += Math.abs(deltaX)
-      certificateOffsetRef.current += deltaX * 0.12
+      dragStateRef.current.lastDeltaX = deltaX
+      certificateOffsetRef.current += deltaX * 0.25
 
       if (certificateRotationRef.current) {
         certificateRotationRef.current.style.transform = `rotateY(${certificateOffsetRef.current}deg)`
@@ -147,6 +149,12 @@ export default function MainPage() {
       setIsGrabbingCertificates(false)
       setIsAutoSpinPaused(false)
       setCertificateOffset(certificateOffsetRef.current)
+      
+      if (dragStateRef.current.lastDeltaX > 0) {
+        setSpinDirection('normal')
+      } else if (dragStateRef.current.lastDeltaX < 0) {
+        setSpinDirection('reverse')
+      }
 
       if (dragStateRef.current.totalDeltaX > 6) {
         suppressCertificateClickRef.current = true
@@ -175,6 +183,12 @@ export default function MainPage() {
     }
 
     setCertificateOffset(certificateOffsetRef.current)
+    
+    if (delta > 0) {
+      setSpinDirection('normal')
+    } else if (delta < 0) {
+      setSpinDirection('reverse')
+    }
   }
 
   useEffect(() => {
@@ -246,6 +260,7 @@ export default function MainPage() {
             certificateCardWidth={certificateCardWidth}
             certificateOffset={certificateOffset}
             isAutoSpinPaused={isAutoSpinPaused}
+            spinDirection={spinDirection}
             certificates={certificates}
             certificateRadius={certificateRadius}
             suppressCertificateClickRef={suppressCertificateClickRef}

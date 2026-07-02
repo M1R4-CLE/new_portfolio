@@ -12,6 +12,7 @@ export default function Certificates({
   certificateCardWidth,
   certificateOffset,
   isAutoSpinPaused,
+  spinDirection,
   certificates,
   certificateRadius,
   suppressCertificateClickRef,
@@ -51,6 +52,7 @@ export default function Certificates({
           certificateCardWidth={certificateCardWidth}
           certificateOffset={certificateOffset}
           isAutoSpinPaused={isAutoSpinPaused}
+          spinDirection={spinDirection}
           certificates={certificates}
           certificateAngle={certificateAngle}
           certificateRadius={certificateRadius}
