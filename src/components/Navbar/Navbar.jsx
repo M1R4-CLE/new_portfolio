@@ -18,9 +18,11 @@ const Linkedin = ({ size }) => (
 )
 import { useState } from 'react'
 import { useLenis } from 'lenis/react'
+import ResumeModal from '../ResumeModal'
 
 export default function Navbar({ isLightTheme, toggleTheme, openContactModal }) {
   const [activeSection, setActiveSection] = useState('Home')
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false)
   const lenis = useLenis()
 
   const navLinks = [
@@ -42,8 +44,8 @@ export default function Navbar({ isLightTheme, toggleTheme, openContactModal }) 
       <nav className="flex items-center justify-between">
         {/* Left: Logo and Name */}
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-400">
-            <Asterisk size={20} />
+          <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-[#151515]">
+            <img src="/pfp/LOGO.png" alt="MIRA Logo" className="h-full w-full object-cover" />
           </div>
           <span className="font-bold tracking-wide text-white">MIRA</span>
         </div>
@@ -103,11 +105,19 @@ export default function Navbar({ isLightTheme, toggleTheme, openContactModal }) 
           <a href="#" className="text-stone-400 transition hover:text-emerald-400">
             <Linkedin size={20} />
           </a>
-          <button className="ml-2 rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-black transition-all hover:scale-105 hover:bg-emerald-300 hover:shadow-[0_0_15px_rgba(52,211,153,0.4)]">
+          <button 
+            onClick={() => setIsResumeModalOpen(true)}
+            className="ml-2 rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-black transition-all hover:scale-105 hover:bg-emerald-300 hover:shadow-[0_0_15px_rgba(52,211,153,0.4)]"
+          >
             Resume
           </button>
         </div>
       </nav>
+
+      <ResumeModal 
+        isOpen={isResumeModalOpen} 
+        onClose={() => setIsResumeModalOpen(false)} 
+      />
     </motion.header>
   )
 }
