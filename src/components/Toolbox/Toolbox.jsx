@@ -109,25 +109,12 @@ export default function Toolbox() {
       id="skills"
       className="scroll-mt-32"
       onViewportEnter={() => setHasStarted(true)}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      viewport={{ once: true }}
     >
-      <BorderGlow
-        className="h-full p-[2px] transition-transform duration-300 hover:-translate-y-1"
-        glowColor="40 80 80"
-        backgroundColor="#120F17"
-        borderRadius={32}
-        glowRadius={40}
-        glowIntensity={1}
-        coneSpread={25}
-        animated={false}
+      <SpotlightCard
+        spotlightColor="rgba(0, 229, 255, 0.18)"
+        className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-lg p-8 shadow-2xl shadow-black/15 lg:p-12 transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)] hover:-translate-y-1"
       >
-        <SpotlightCard
-          spotlightColor="rgba(0, 229, 255, 0.18)"
-          className="rounded-[calc(2rem-2px)] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-black/15 backdrop-blur-2xl lg:p-12 transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)]"
-        >
       <div className="mb-10">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-stone-300">
           <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
@@ -142,7 +129,7 @@ export default function Toolbox() {
         </p>
       </div>
 
-      <div className="mb-10 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/15 backdrop-blur-2xl">
+      <div className="mb-10 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl shadow-black/15">
         <div className="flex items-center justify-between border-b border-white/10 bg-black/40 pr-2 pl-4 py-1.5">
           <div className="flex items-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -196,8 +183,7 @@ export default function Toolbox() {
           </motion.div>
         )}
       </AnimatePresence>
-        </SpotlightCard>
-      </BorderGlow>
+      </SpotlightCard>
     </motion.section>
   )
 }

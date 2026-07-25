@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import Carousel3D from '../Carousel3D/Carousel3D'
+import AllCertificatesModal from './AllCertificatesModal'
 
 export default function Certificates({
   adjustCertificateOffset,
@@ -18,26 +20,12 @@ export default function Certificates({
   suppressCertificateClickRef,
   openCertificate,
 }) {
+  const [isAllModalOpen, setIsAllModalOpen] = useState(false)
+
   return (
-    <section id="achievements" className="mt-10 mb-10 scroll-mt-32">
-      <div className="mb-6 flex items-center justify-between">
+    <section id="achievements" className="mt-10 mb-10 scroll-mt-24">
+      <div className="mb-6 flex items-center">
         <h2 className="text-3xl font-semibold">Certificates</h2>
-        <div className="flex gap-3">
-          <button
-            type="button"
-            onClick={() => adjustCertificateOffset(certificateAngle)}
-            className="rounded-full border border-white/15 px-4 py-2 transition hover:border-emerald-400 hover:text-emerald-400"
-          >
-            Prev
-          </button>
-          <button
-            type="button"
-            onClick={() => adjustCertificateOffset(-certificateAngle)}
-            className="rounded-full border border-white/15 px-4 py-2 transition hover:border-emerald-400 hover:text-emerald-400"
-          >
-            Next
-          </button>
-        </div>
       </div>
 
       <div
@@ -59,7 +47,21 @@ export default function Certificates({
           suppressCertificateClickRef={suppressCertificateClickRef}
           openCertificate={openCertificate}
         />
+        
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+          <button 
+            onClick={() => setIsAllModalOpen(true)}
+            className="rounded-full border border-white/20 bg-black/50 backdrop-blur-md px-8 py-3 font-medium text-white shadow-lg transition hover:bg-white/10 hover:border-emerald-400 hover:text-emerald-400"
+          >
+            View More
+          </button>
+        </div>
       </div>
+
+      <AllCertificatesModal 
+        isOpen={isAllModalOpen} 
+        onClose={() => setIsAllModalOpen(false)} 
+      />
     </section>
   )
 }

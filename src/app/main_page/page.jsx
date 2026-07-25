@@ -103,7 +103,7 @@ export default function MainPage() {
   const [isGrabbingCertificates, setIsGrabbingCertificates] = useState(false)
   const certificateRadius = 600
   const certificateCardWidth = 480
-  const certificateCardHeight = 280
+  const certificateCardHeight = 380
   const [isAutoSpinPaused, setIsAutoSpinPaused] = useState(false)
   const [spinDirection, setSpinDirection] = useState('normal')
   const certificateOffsetRef = useRef(0)
@@ -231,8 +231,8 @@ export default function MainPage() {
           color1="#ffffff"
           color2="#ffffff"
           color3="#ffffff"
-          enableMouseInteraction={true}
-          mouseInfluence={2.0}
+          enableMouseInteraction={false}
+          mouseInfluence={0}
         />
       </div>
 

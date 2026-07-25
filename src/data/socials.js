@@ -1,7 +1,7 @@
 export const socials = [
   {
     label: 'Facebook',
-    href: 'https://www.facebook.com/https.mimim1rcle.com.ph',
+    href: 'https://www.facebook.com/d.m1rakel',
     icon: 'facebook',
   },
   {
@@ -21,7 +21,7 @@ export const socials = [
   },
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/https.mimim1r4cle.is/',
+    href: 'https://www.instagram.com/dm.m1rakel',
     icon: 'instagram',
   },
 ]

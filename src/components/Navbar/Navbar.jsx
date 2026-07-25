@@ -17,12 +17,14 @@ const Linkedin = ({ size }) => (
   </svg>
 )
 import { useState } from 'react'
+import { useLenis } from 'lenis/react'
 
 export default function Navbar({ isLightTheme, toggleTheme, openContactModal }) {
   const [activeSection, setActiveSection] = useState('Home')
+  const lenis = useLenis()
 
   const navLinks = [
-    { name: 'Home', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
+    { name: 'Home', action: () => lenis ? lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: 'smooth' }) },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Achievements', href: '#achievements' },
@@ -53,9 +55,20 @@ export default function Navbar({ isLightTheme, toggleTheme, openContactModal }) 
               key={link.name}
               href={link.href || '#'}
               onClick={(e) => {
+                e.preventDefault()
                 if (link.action) {
-                  e.preventDefault()
                   link.action()
+                } else if (link.href) {
+                  const el = document.querySelector(link.href)
+                  if (el) {
+                    if (lenis) {
+                      // Let's remove the manual offset entirely so Lenis 
+                      // can natively use the scroll-mt-32 class you already have!
+                      lenis.scrollTo(el)
+                    } else {
+                      el.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }
                 }
                 setActiveSection(link.name)
               }}

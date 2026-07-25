@@ -4,30 +4,77 @@ import { SafeImage } from '../../app/back_end/portfolio_back_end'
 import { motion } from 'framer-motion'
 import SpotlightCard from '../SpotlightCard'
 import BorderGlow from '../BorderGlow'
+import { useState, useEffect } from 'react'
+
+const TypewriterText = ({ text, delay = 0 }) => {
+  const [displayText, setDisplayText] = useState('');
+
+  useEffect(() => {
+    let i = 0;
+    const timer = setTimeout(() => {
+      const intervalId = setInterval(() => {
+        setDisplayText(text.slice(0, i + 1));
+        i++;
+        if (i > text.length) {
+          clearInterval(intervalId);
+        }
+      }, 20); // Fast typing speed
+      return () => clearInterval(intervalId);
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [text, delay]);
+
+  return (
+    <span>
+      {displayText}
+      <span className="inline-block w-[0.1em] h-[1em] bg-emerald-400 ml-1 animate-pulse align-middle" style={{ animationDuration: '0.8s' }}></span>
+    </span>
+  );
+}
 
 export default function Hero({ openContactModal }) {
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] items-stretch"
-    >
-      <BorderGlow
-        className="h-full p-[2px] transition-transform duration-300 hover:-translate-y-1"
-        glowColor="40 80 80"
-        backgroundColor="#120F17"
-        borderRadius={32}
-        glowRadius={40}
-        glowIntensity={1}
-        coneSpread={25}
-        animated={false}
-      >
-        <SpotlightCard
-          spotlightColor="rgba(0, 229, 255, 0.18)"
-          className="h-full rounded-[calc(2rem-2px)] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/15 backdrop-blur-2xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)]"
-        >
-        <div className="mx-auto mb-6 h-56 w-56 overflow-hidden rounded-[2rem] bg-black/20">
+    <section className="grid gap-16 lg:grid-cols-2 items-center min-h-[85vh]">
+      {/* Left Column: Typography and Call to Actions */}
+      <div className="space-y-8">
+        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 px-4 py-1.5 text-xs font-medium text-emerald-400">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          daryll masapa • web developer
+        </div>
+
+        <h1 className="text-5xl font-medium tracking-tight text-white md:text-7xl lg:text-[5rem] lg:leading-[1.1]">
+          The Project of<br />
+          <span className="text-stone-400">Daryll Masapa.</span>
+        </h1>
+
+        <p className="max-w-xl text-lg leading-relaxed text-stone-400">
+          <TypewriterText 
+            delay={500}
+            text="Throughout my college journey, I successfully completed a variety of projects that enhanced my skills in technology, design, and problem-solving. These include fully functional applications, interactive prototypes, and research-based outputs." 
+          />
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href="#projects"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-400 to-emerald-500 px-8 py-4 text-sm font-semibold text-black transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(52,211,153,0.3)]"
+          >
+            See Featured Works &rarr;
+          </a>
+          <button
+            type="button"
+            onClick={openContactModal}
+            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:text-emerald-400"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Contact Me
+          </button>
+        </div>
+      </div>
+
+      {/* Right Column: Profile Content without the outer box */}
+      <div className="w-full max-w-md mx-auto lg:ml-auto">
+        <div className="mx-auto mb-8 h-48 w-48 overflow-hidden rounded-3xl bg-black/20">
           <div className="relative h-full w-full">
             <SafeImage
               src="/pfp/NEW PFP.png"
@@ -38,11 +85,11 @@ export default function Hero({ openContactModal }) {
           </div>
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-4">
           <div>
             <h3 className="mb-4 text-lg font-semibold text-emerald-400">Quick Info</h3>
             <dl className="space-y-3">
-              <div className="rounded-2xl border border-white/10 bg-black/15 p-4 flex items-center gap-4 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/50 hover:shadow-[0_0_15px_rgba(52,211,153,0.1)]">
+              <div className="rounded-2xl border border-white/5 bg-[#121212]/80 backdrop-blur-sm p-4 flex items-center gap-4">
                 <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 shrink-0">
                   <img src="https://mcm.edu.ph/wp-content/uploads/2022/06/Logo-Final_noname_1.png" alt="MCM" className="w-full h-full object-contain" />
                 </div>
@@ -59,23 +106,23 @@ export default function Hero({ openContactModal }) {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-white/10 bg-black/15 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/50 hover:shadow-[0_0_15px_rgba(52,211,153,0.1)]">
+              <div className="rounded-2xl border border-white/5 bg-[#121212]/80 backdrop-blur-sm p-4">
                 <dt className="text-sm uppercase tracking-[0.25em] text-stone-400">
                   Experience
                 </dt>
                 <dd className="mt-1 flex items-end justify-between gap-3">
-                  <strong className="text-xl">6 months</strong>
+                  <strong className="text-xl text-stone-100">6 months</strong>
                   <span className="text-sm text-stone-400">Web / UI / Apps</span>
                 </dd>
               </div>
             </dl>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-black/15 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/50 hover:shadow-[0_0_15px_rgba(52,211,153,0.1)]">
+          <div className="rounded-2xl border border-white/5 bg-[#121212]/80 backdrop-blur-sm p-4">
             <strong className="block text-sm uppercase tracking-[0.25em] text-emerald-400">
               Skills
             </strong>
-            <p className="mt-2 leading-7 text-stone-300">
+            <p className="mt-2 text-stone-300">
               HTML · CSS · JS · React · Figma · UX Design
             </p>
           </div>
@@ -83,67 +130,13 @@ export default function Hero({ openContactModal }) {
           <a
             href="/cv.pdf"
             download="Daryll_Dave_R._Masapa_CV.pdf"
-            className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-400/10 px-4 py-3 text-sm font-semibold text-emerald-400 transition-all hover:bg-emerald-400 hover:text-black"
+            className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-400/10 px-4 py-3 text-sm font-semibold text-emerald-400 transition-all hover:bg-emerald-400 hover:text-black"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download CV
           </a>
         </div>
-        </SpotlightCard>
-      </BorderGlow>
-
-      <BorderGlow
-        className="h-full p-[2px] transition-transform duration-300 hover:-translate-y-1"
-        glowColor="40 80 80"
-        backgroundColor="#120F17"
-        borderRadius={32}
-        glowRadius={40}
-        glowIntensity={1}
-        coneSpread={25}
-        animated={false}
-      >
-        <SpotlightCard
-          spotlightColor="rgba(0, 229, 255, 0.18)"
-          className="h-full rounded-[calc(2rem-2px)] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-black/15 backdrop-blur-2xl transition-all duration-300 hover:border-emerald-400/50 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)]"
-        >
-        <div className="mb-6 flex flex-wrap items-center gap-3 text-sm uppercase tracking-[0.25em] text-stone-400">
-          <span>Daryll Masapa</span>
-          <span className="h-1 w-1 rounded-full bg-emerald-400" />
-          <span>Web Developer • Designer • Programmer</span>
-        </div>
-
-        <h1 className="max-w-3xl text-4xl font-semibold leading-tight md:text-6xl">
-          The Project of
-          <br />
-          Daryll Masapa
-        </h1>
-
-        <div className="mt-6 max-w-3xl text-lg leading-8 text-stone-300">
-          <p>
-            Throughout my college journey, I successfully completed a variety of
-            projects that enhanced my skills in technology, design, and
-            problem-solving. These include fully functional applications,
-            interactive prototypes, and research-based outputs.
-          </p>
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="rounded-full bg-emerald-400 px-6 py-3 font-semibold text-black transition-all hover:bg-emerald-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_15px_rgba(52,211,153,0.5)]"
-          >
-            See Featured Works
-          </a>
-          <button
-            type="button"
-            onClick={openContactModal}
-            className="rounded-full border border-white/20 px-6 py-3 font-semibold transition-all hover:border-emerald-400 hover:text-emerald-400 hover:scale-105 active:scale-95 hover:bg-emerald-400/10"
-          >
-            Contact Me
-          </button>
-        </div>
-        </SpotlightCard>
-      </BorderGlow>
-    </motion.section>
+      </div>
+    </section>
   )
 }
