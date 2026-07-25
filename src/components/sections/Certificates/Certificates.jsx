@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Carousel3D from '../Carousel3D/Carousel3D'
+import Carousel3D from '../../ui/Carousel3D/Carousel3D'
 import AllCertificatesModal from './AllCertificatesModal'
 
 export default function Certificates({

@@ -1,23 +1,22 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { certificates } from '../../data/certificates'
-import { socials } from '../../data/socials'
+import { certificates } from '../data/certificates'
+import { socials } from '../data/socials'
 import {
   SafeImage,
   usePortfolioState,
-} from '../back_end/portfolio_back_end'
+} from './back_end/portfolio_back_end'
 
-// Import modularized components
-import Navbar from '../../components/Navbar/Navbar'
-import Hero from '../../components/Hero/Hero'
-import About from '../../components/About/About'
-import Projects from '../../components/Projects/Projects'
-import Certificates from '../../components/Certificates/Certificates'
-import Contact from '../../components/Contact/Contact'
-import Footer from '../../components/Footer/Footer'
-import LineWaves from '../../components/LineWaves/LineWaves'
-import Toolbox from '../../components/Toolbox/Toolbox'
+import Navbar from '../components/layout/Navbar/Navbar'
+import Hero from '../components/sections/Hero/Hero'
+import About from '../components/sections/About/About'
+import Projects from '../components/sections/Projects/Projects'
+import Certificates from '../components/sections/Certificates/Certificates'
+import Contact from '../components/sections/Contact/Contact'
+import Footer from '../components/layout/Footer/Footer'
+import LineWaves from '../components/ui/LineWaves/LineWaves'
+import Toolbox from '../components/sections/Toolbox/Toolbox'
 
 function ContactModal({ isOpen, onClose }) {
   if (!isOpen) {

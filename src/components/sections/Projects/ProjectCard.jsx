@@ -1,8 +1,8 @@
 'use client'
 
-import { SafeImage } from '../../app/back_end/portfolio_back_end'
-import SpotlightCard from '../SpotlightCard'
-import BorderGlow from '../BorderGlow'
+import { SafeImage } from '../../../app/back_end/portfolio_back_end'
+import SpotlightCard from '../../ui/SpotlightCard'
+import BorderGlow from '../../ui/BorderGlow'
 
 export default function ProjectCard({ project, onClick }) {
   return (

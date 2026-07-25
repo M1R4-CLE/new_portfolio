@@ -1,6 +1,6 @@
 'use client'
 
-import { SafeImage } from '../../app/back_end/portfolio_back_end'
+import { SafeImage } from '../../../app/back_end/portfolio_back_end'
 
 export default function Carousel3D({
   isGrabbingCertificates,

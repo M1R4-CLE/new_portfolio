@@ -1,9 +1,9 @@
 'use client'
 
-import { SafeImage } from '../../app/back_end/portfolio_back_end'
+import { SafeImage } from '../../../app/back_end/portfolio_back_end'
 import { motion } from 'framer-motion'
-import SpotlightCard from '../SpotlightCard'
-import BorderGlow from '../BorderGlow'
+import SpotlightCard from '../../ui/SpotlightCard'
+import BorderGlow from '../../ui/BorderGlow'
 import { useState, useEffect } from 'react'
 
 const TypewriterText = ({ text, delay = 0 }) => {

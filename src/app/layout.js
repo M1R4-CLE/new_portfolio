@@ -11,7 +11,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-import SmoothScroll from "../components/SmoothScroll/SmoothScroll";
+import SmoothScroll from "../components/ui/SmoothScroll/SmoothScroll";
 
 export const metadata = {
   title: "Daryll Masapa Portfolio",

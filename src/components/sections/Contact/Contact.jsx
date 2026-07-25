@@ -1,6 +1,6 @@
 'use client'
 
-import { SocialIcon } from '../../app/back_end/portfolio_back_end'
+import { SocialIcon } from '../../../app/back_end/portfolio_back_end'
 
 export default function Contact({ openContactModal, socials }) {
   return (

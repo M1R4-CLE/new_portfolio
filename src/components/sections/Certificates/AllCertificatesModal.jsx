@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SafeImage } from '../../app/back_end/portfolio_back_end'
+import { SafeImage } from '../../../app/back_end/portfolio_back_end'
 import { useLenis } from 'lenis/react'
 
 const ALL_CERTIFICATES = [

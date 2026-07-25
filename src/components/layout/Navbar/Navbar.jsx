@@ -35,12 +35,13 @@ export default function Navbar({ isLightTheme, toggleTheme, openContactModal }) 
   ]
 
   return (
-    <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-6 left-1/2 z-50 w-[95%] max-w-6xl -translate-x-1/2 rounded-full border border-white/10 bg-[#151515]/80 px-4 py-2.5 shadow-2xl backdrop-blur-xl"
-    >
+    <>
+      <motion.header 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="fixed top-6 left-1/2 z-50 w-[95%] max-w-6xl -translate-x-1/2 rounded-full border border-white/10 bg-[#151515]/80 px-4 py-2.5 shadow-2xl backdrop-blur-xl"
+      >
       <nav className="flex items-center justify-between">
         {/* Left: Logo and Name */}
         <div className="flex items-center gap-3">
@@ -113,11 +114,12 @@ export default function Navbar({ isLightTheme, toggleTheme, openContactModal }) 
           </button>
         </div>
       </nav>
+      </motion.header>
 
       <ResumeModal 
         isOpen={isResumeModalOpen} 
         onClose={() => setIsResumeModalOpen(false)} 
       />
-    </motion.header>
+    </>
   )
 }

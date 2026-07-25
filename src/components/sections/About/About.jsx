@@ -1,7 +1,8 @@
 'use client'
 
-import BorderGlow from '../BorderGlow'
-import SpotlightCard from '../SpotlightCard'
+import { SafeImage } from '../../../app/back_end/portfolio_back_end'
+import BorderGlow from '../../ui/BorderGlow'
+import SpotlightCard from '../../ui/SpotlightCard'
 import { motion } from 'framer-motion'
 
 export default function About() {
