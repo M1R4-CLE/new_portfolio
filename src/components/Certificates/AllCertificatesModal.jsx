@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SafeImage } from '../../app/back_end/portfolio_back_end'
 import { useLenis } from 'lenis/react'
@@ -27,6 +27,41 @@ const ALL_CERTIFICATES = [
   "/certificates_images/View More/Coursera JRBN74CTF1GD-1.png",
   "/certificates_images/View More/Coursera MNXO0ORJHMAE-1.png"
 ]
+
+function CertificateCard({ certPath, idx }) {
+  const [isLoading, setIsLoading] = useState(true)
+
+  return (
+    <div className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all hover:scale-[1.02] hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)]">
+      
+      {/* Skeleton Loader */}
+      {isLoading && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-stone-800/50 animate-pulse">
+          <div className="h-12 w-12 rounded-full border-4 border-emerald-500/30 border-t-emerald-500 animate-spin" />
+        </div>
+      )}
+
+      <SafeImage
+        src={certPath}
+        alt={`Certificate ${idx + 1}`}
+        label={`Certificate ${idx + 1}`}
+        onLoad={() => setIsLoading(false)}
+        className={isLoading ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}
+      />
+      
+      <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+        <a 
+          href={certPath} 
+          target="_blank" 
+          rel="noreferrer"
+          className="rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-white transition hover:bg-emerald-400"
+        >
+          View Full
+        </a>
+      </div>
+    </div>
+  )
+}
 
 export default function AllCertificatesModal({ isOpen, onClose }) {
   const wrapperRef = useRef(null)
@@ -95,26 +130,7 @@ export default function AllCertificatesModal({ isOpen, onClose }) {
           >
             <div ref={contentRef} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {ALL_CERTIFICATES.map((certPath, idx) => (
-                <div 
-                  key={idx} 
-                  className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all hover:scale-[1.02] hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)]"
-                >
-                  <SafeImage
-                    src={certPath}
-                    alt={`Certificate ${idx + 1}`}
-                    label={`Certificate ${idx + 1}`}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
-                    <a 
-                      href={certPath} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="rounded-full bg-emerald-500 px-6 py-2 text-sm font-semibold text-white transition hover:bg-emerald-400"
-                    >
-                      View Full
-                    </a>
-                  </div>
-                </div>
+                <CertificateCard key={idx} certPath={certPath} idx={idx} />
               ))}
             </div>
           </div>
