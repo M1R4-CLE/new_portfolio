@@ -52,19 +52,19 @@ export default function Projects({
   return (
     <section id="projects" className="mt-10 scroll-mt-24 overflow-hidden">
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-3xl font-semibold">Projects</h2>
+        <h2 className="text-3xl font-semibold text-stone-900 dark:text-white">Projects</h2>
         <div className="flex gap-3">
           <button
             type="button"
             onClick={handlePrev}
-            className="rounded-full border border-white/15 px-4 py-2 text-2xl leading-none transition hover:border-emerald-400 hover:text-emerald-400 z-10"
+            className="rounded-full border border-stone-900/15 dark:border-white/15 px-4 py-2 text-2xl leading-none text-stone-900 dark:text-white transition hover:border-emerald-400 hover:text-emerald-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400 z-10"
           >
             &#8249;
           </button>
           <button
             type="button"
             onClick={handleNext}
-            className="rounded-full border border-white/15 px-4 py-2 text-2xl leading-none transition hover:border-emerald-400 hover:text-emerald-400 z-10"
+            className="rounded-full border border-stone-900/15 dark:border-white/15 px-4 py-2 text-2xl leading-none text-stone-900 dark:text-white transition hover:border-emerald-400 hover:text-emerald-400 dark:hover:border-emerald-400 dark:hover:text-emerald-400 z-10"
           >
             &#8250;
           </button>

@@ -8,11 +8,11 @@ import BorderGlow from '../../ui/BorderGlow'
 import { SafeImage } from '../../../app/back_end/portfolio_back_end'
 
 const SkillBadge = ({ name, icon }) => (
-  <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-2 transition-all hover:bg-white/10 hover:scale-105">
+  <div className="flex items-center gap-2 rounded-xl border border-stone-900/10 bg-stone-900/5 dark:border-white/10 dark:bg-white/5 px-4 py-2 transition-all hover:bg-stone-900/10 dark:hover:bg-white/10 hover:scale-105">
     <div className="flex h-5 w-5 items-center justify-center">
       {icon}
     </div>
-    <span className="text-sm font-semibold text-stone-300">[{name}]</span>
+    <span className="text-sm font-semibold text-stone-700 dark:text-stone-300">[{name}]</span>
   </div>
 )
 
@@ -43,8 +43,8 @@ export default function Toolbox() {
     { text: "✓ Build successful.", color: "text-emerald-400" },
     { text: "Loading developer profile...", color: "text-stone-400", mt: true },
     { text: "✓ Portfolio ready.", color: "text-emerald-400" },
-    { text: "✓ Ready.", color: "text-emerald-400" },
-    { text: "Available Technologies", color: "text-white font-semibold", mt: true }
+    { text: "✓ Ready.", color: "text-emerald-500 dark:text-emerald-400" },
+    { text: "Available Technologies", color: "text-stone-900 dark:text-white font-semibold", mt: true }
   ]
 
   useEffect(() => {
@@ -120,39 +120,39 @@ export default function Toolbox() {
     >
       <SpotlightCard
         spotlightColor="rgba(0, 229, 255, 0.18)"
-        className="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-lg p-8 shadow-2xl shadow-black/15 lg:p-12 transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)] hover:-translate-y-1"
+        className="rounded-[2rem] border border-stone-900/10 bg-white/80 dark:border-white/10 dark:bg-white/5 backdrop-blur-lg p-8 shadow-2xl shadow-stone-900/5 dark:shadow-black/15 lg:p-12 transition-all duration-300 hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)] hover:-translate-y-1"
       >
       <div className="mb-10">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-stone-300">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone-900/10 bg-stone-900/5 dark:border-white/10 dark:bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-widest text-stone-700 dark:text-stone-300">
           <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
           Developer Skills
         </div>
-        <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl text-white">
+        <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl text-stone-900 dark:text-white">
           Developer Toolbox
         </h2>
-        <p className="max-w-2xl text-lg leading-relaxed text-stone-400">
+        <p className="max-w-2xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
           A collection of the languages, frameworks, databases, and tools I use to
           transform ideas into real-world software.
         </p>
       </div>
 
-      <div className="mb-10 overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl shadow-black/15">
-        <div className="flex items-center justify-between border-b border-white/10 bg-black/40 pr-2 pl-4 py-1.5">
+      <div className="mb-10 overflow-hidden rounded-[1.5rem] border border-stone-900/10 bg-stone-50/80 dark:border-white/10 dark:bg-white/5 backdrop-blur-md shadow-2xl shadow-stone-900/5 dark:shadow-black/15">
+        <div className="flex items-center justify-between border-b border-stone-900/10 dark:border-white/10 bg-stone-200/50 dark:bg-black/40 pr-2 pl-4 py-1.5">
           <div className="flex items-center gap-2">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="4 17 10 11 4 5"></polyline>
               <line x1="12" y1="19" x2="20" y2="19"></line>
             </svg>
-            <span className="text-xs font-medium text-stone-300">Windows PowerShell</span>
+            <span className="text-xs font-medium text-stone-700 dark:text-stone-300">Windows PowerShell</span>
           </div>
           <div className="flex items-center gap-1">
-            <button className="flex h-7 w-10 items-center justify-center rounded text-stone-400 transition-colors hover:bg-white/10">
+            <button className="flex h-7 w-10 items-center justify-center rounded text-stone-500 dark:text-stone-400 transition-colors hover:bg-stone-900/10 dark:hover:bg-white/10">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor"><line x1="0" y1="5" x2="10" y2="5" strokeWidth="1"/></svg>
             </button>
-            <button className="flex h-7 w-10 items-center justify-center rounded text-stone-400 transition-colors hover:bg-white/10">
+            <button className="flex h-7 w-10 items-center justify-center rounded text-stone-500 dark:text-stone-400 transition-colors hover:bg-stone-900/10 dark:hover:bg-white/10">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor"><rect x="1" y="1" width="8" height="8" strokeWidth="1"/></svg>
             </button>
-            <button className="flex h-7 w-10 items-center justify-center rounded text-stone-400 transition-colors hover:bg-red-500 hover:text-white">
+            <button className="flex h-7 w-10 items-center justify-center rounded text-stone-500 dark:text-stone-400 transition-colors hover:bg-red-500 hover:text-white">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor"><path d="M1 1L9 9M9 1L1 9" strokeWidth="1"/></svg>
             </button>
           </div>
@@ -171,7 +171,7 @@ export default function Toolbox() {
             )
           })}
           {isFinished && (
-            <p className="animate-pulse font-semibold text-white">_</p>
+            <p className="animate-pulse font-semibold text-stone-900 dark:text-white">_</p>
           )}
         </div>
       </div>

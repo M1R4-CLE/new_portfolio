@@ -42,9 +42,9 @@ export default function Hero({ openContactModal }) {
           daryll masapa • web developer
         </div>
 
-        <h1 className="text-5xl font-medium tracking-tight text-white md:text-7xl lg:text-[5rem] lg:leading-[1.1]">
-          The Project of<br />
-          <span className="text-stone-400">Daryll Masapa.</span>
+        <h1 className="text-5xl font-medium tracking-tight text-stone-900 dark:text-white md:text-7xl lg:text-[5rem] lg:leading-[1.1]">
+          The Masapa<br />
+          <span className="text-stone-500 dark:text-stone-400">Project.</span>
         </h1>
 
         <p className="max-w-xl text-lg leading-relaxed text-stone-400">
@@ -64,7 +64,7 @@ export default function Hero({ openContactModal }) {
           <button
             type="button"
             onClick={openContactModal}
-            className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:text-emerald-400"
+            className="flex items-center gap-2 rounded-full border border-stone-900/10 bg-stone-900/5 dark:border-white/10 dark:bg-white/5 px-8 py-4 text-sm font-semibold text-stone-900 dark:text-white transition-all hover:bg-stone-900/10 dark:hover:bg-white/10 hover:text-emerald-500 dark:hover:text-emerald-400"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
             Contact Me
@@ -89,16 +89,16 @@ export default function Hero({ openContactModal }) {
           <div>
             <h3 className="mb-4 text-lg font-semibold text-emerald-400">Quick Info</h3>
             <dl className="space-y-3">
-              <div className="rounded-2xl border border-white/5 bg-[#121212]/80 backdrop-blur-sm p-4 flex items-center gap-4">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 shrink-0">
+              <div className="rounded-2xl border border-stone-900/5 bg-white/80 dark:border-white/5 dark:bg-[#121212]/80 backdrop-blur-sm p-4 flex items-center gap-4">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center p-1 shrink-0 shadow-sm">
                   <img src="https://mcm.edu.ph/wp-content/uploads/2022/06/Logo-Final_noname_1.png" alt="MCM" className="w-full h-full object-contain" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-sm text-stone-100">Mapua Malayan Colleges Mindanao</h4>
-                  <p className="text-xs text-stone-400 mt-0.5">Second Year BS Information System</p>
+                  <h4 className="font-bold text-sm text-stone-900 dark:text-stone-100">Mapua Malayan Colleges Mindanao</h4>
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">Second Year BS Information System</p>
                   <div className="flex items-center gap-1.5 mt-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="text-[10px] text-stone-300">Currently Studying</span>
+                    <span className="text-[10px] text-stone-500 dark:text-stone-300">Currently Studying</span>
                   </div>
                 </div>
                 <div className="text-purple-400 opacity-80 shrink-0">
@@ -106,23 +106,23 @@ export default function Hero({ openContactModal }) {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-white/5 bg-[#121212]/80 backdrop-blur-sm p-4">
-                <dt className="text-sm uppercase tracking-[0.25em] text-stone-400">
+              <div className="rounded-2xl border border-stone-900/5 bg-white/80 dark:border-white/5 dark:bg-[#121212]/80 backdrop-blur-sm p-4">
+                <dt className="text-sm uppercase tracking-[0.25em] text-stone-500 dark:text-stone-400">
                   Experience
                 </dt>
                 <dd className="mt-1 flex items-end justify-between gap-3">
-                  <strong className="text-xl text-stone-100">6 months</strong>
-                  <span className="text-sm text-stone-400">Web / UI / Apps</span>
+                  <strong className="text-xl text-stone-900 dark:text-stone-100">6 months</strong>
+                  <span className="text-sm text-stone-500 dark:text-stone-400">Web / UI / Apps</span>
                 </dd>
               </div>
             </dl>
           </div>
 
-          <div className="rounded-2xl border border-white/5 bg-[#121212]/80 backdrop-blur-sm p-4">
-            <strong className="block text-sm uppercase tracking-[0.25em] text-emerald-400">
+          <div className="rounded-2xl border border-stone-900/5 bg-white/80 dark:border-white/5 dark:bg-[#121212]/80 backdrop-blur-sm p-4">
+            <strong className="block text-sm uppercase tracking-[0.25em] text-emerald-500 dark:text-emerald-400">
               Skills
             </strong>
-            <p className="mt-2 text-stone-300">
+            <p className="mt-2 text-stone-600 dark:text-stone-300">
               HTML · CSS · JS · React · Figma · UX Design
             </p>
           </div>

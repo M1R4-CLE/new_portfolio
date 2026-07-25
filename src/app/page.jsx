@@ -212,7 +212,7 @@ export default function MainPage() {
     <main
       className={`relative min-h-screen transition-colors duration-300 ${
         !isLightTheme
-          ? 'bg-[radial-gradient(circle_at_top,#151515,#070707_48%,#000000)] text-stone-100'
+          ? 'dark bg-[radial-gradient(circle_at_top,#151515,#070707_48%,#000000)] text-stone-100'
           : 'bg-[radial-gradient(circle_at_top,#fff6d6,#f6efe2_45%,#ebe6db)] text-stone-900'
       }`}
     >

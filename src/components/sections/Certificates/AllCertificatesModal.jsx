@@ -32,7 +32,7 @@ function CertificateCard({ certPath, idx }) {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <div className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-all hover:scale-[1.02] hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)]">
+    <div className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-stone-900/10 bg-white dark:border-white/10 dark:bg-white/5 transition-all hover:scale-[1.02] hover:border-emerald-400/50 hover:shadow-[0_0_20px_rgba(52,211,153,0.15)]">
       
       {/* Skeleton Loader */}
       {isLoading && (
@@ -103,17 +103,17 @@ export default function AllCertificatesModal({ isOpen, onClose }) {
           initial={{ scale: 0.95, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 20 }}
-          className="relative flex h-[85vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-[#120F17] shadow-2xl shadow-emerald-500/10"
+          className="relative flex h-[85vh] w-full max-w-7xl flex-col overflow-hidden rounded-3xl border border-stone-900/10 bg-white dark:border-white/10 dark:bg-[#120F17] shadow-2xl shadow-emerald-500/10"
         >
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-white/10 bg-white/5 p-6 backdrop-blur-md">
+          <div className="flex items-center justify-between border-b border-stone-900/10 bg-stone-50 dark:border-white/10 dark:bg-white/5 p-6 backdrop-blur-md">
             <div>
-              <h2 className="text-2xl font-bold text-white">All Certificates</h2>
-              <p className="text-sm text-stone-400">A complete collection of my achievements and certifications.</p>
+              <h2 className="text-2xl font-bold text-stone-900 dark:text-white">All Certificates</h2>
+              <p className="text-sm text-stone-600 dark:text-stone-400">A complete collection of my achievements and certifications.</p>
             </div>
             <button
               onClick={onClose}
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-stone-400 transition hover:bg-white/20 hover:text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-900/10 dark:bg-white/10 text-stone-600 dark:text-stone-400 transition hover:bg-stone-900/20 dark:hover:bg-white/20 hover:text-stone-900 dark:hover:text-white"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>

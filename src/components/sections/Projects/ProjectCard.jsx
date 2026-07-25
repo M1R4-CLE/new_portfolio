@@ -19,9 +19,9 @@ export default function ProjectCard({ project, onClick }) {
       <SpotlightCard
         onClick={onClick}
         spotlightColor="rgba(0, 229, 255, 0.18)"
-        className="flex h-full flex-col rounded-[calc(1.75rem-2px)] border border-white/10 bg-white/8 p-4 text-left shadow-xl shadow-black/10 transition hover:border-emerald-400/50 focus:outline-none"
+        className="flex h-full flex-col rounded-[calc(1.75rem-2px)] border border-stone-900/10 bg-white/80 dark:border-white/10 dark:bg-white/8 p-4 text-left shadow-xl shadow-stone-900/5 dark:shadow-black/10 transition hover:border-emerald-400/50 focus:outline-none"
       >
-        <figure className="relative h-56 overflow-hidden rounded-[1.25rem] bg-black/15 p-4">
+        <figure className="relative h-56 overflow-hidden rounded-[1.25rem] bg-stone-900/5 dark:bg-black/15 p-4">
           <SafeImage
             src={project.src}
             alt={project.title}
@@ -31,8 +31,8 @@ export default function ProjectCard({ project, onClick }) {
         </figure>
 
         <div className="flex flex-1 flex-col pt-5">
-          <h3 className="min-h-[4rem] text-2xl font-semibold">{project.title}</h3>
-          <p className="mt-3 min-h-[8.5rem] leading-7 text-stone-300">
+          <h3 className="min-h-[4rem] text-2xl font-semibold text-stone-900 dark:text-white">{project.title}</h3>
+          <p className="mt-3 min-h-[8.5rem] leading-7 text-stone-600 dark:text-stone-300">
             {project.description}
           </p>
           <ul className="mt-auto flex flex-wrap gap-2 pt-4">

@@ -16,14 +16,14 @@ export default function About() {
           About me
         </p>
         <h2 className="mt-3 text-3xl font-semibold md:text-4xl text-white">
-          Hi, I&apos;m Daryll Dave R. Masapa - also known as Mira
+          Hi, I&apos;m Daryll Dave R. Masapa - also known as MIRA
         </h2>
         <p className="mt-3 text-lg text-stone-300">
-          BSIS - 2nd Year - Aspiring Web Developer, Data Analyst and Information
+          BSIS - 3rd Year - Aspiring Junior Web Developer, Junior Data Analyst and Information
           Systems Student
         </p>
         <p className="mt-6 max-w-4xl leading-8 text-stone-300">
-          6 months of experience in HTML, CSS, JavaScript, Java, Python, and C++.
+          1 Year of experience in HTML, CSS, JavaScript, Java, Python, flutter, Dart and C++.
           Throughout my college journey, I successfully completed a variety of
           projects that enhanced my skills in technology, design, and
           problem-solving. These include fully functional applications,
